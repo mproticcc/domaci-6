@@ -1,7 +1,9 @@
+const apiHost = 'http://localhost:3000/categories';
 document.getElementById("addCategory").addEventListener("click", function () {
     const categoryName = document.getElementById("categoryName").value;
 
-    fetch("http://localhost:3000/categories", {
+
+    fetch(apiHost, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +18,7 @@ document.getElementById("addCategory").addEventListener("click", function () {
 });
 
 function renderCategory() {
-    fetch("http://localhost:3000/categories", {
+    fetch(apiHost, {
         method: "GET"
     })
         .then(function (data) {
@@ -53,8 +55,6 @@ function renderCategory() {
 
                 document.getElementById("tableBody").appendChild(tableRow);
             }
-
-            // add click event - DELETE
             const deleteLinks = document.getElementsByClassName("delete");
             console.log(deleteLinks);
 
@@ -66,7 +66,7 @@ function renderCategory() {
 
                     const id = event.target.getAttribute("data-categoryid");
 
-                    fetch("http://localhost:3000/categories" + id, {
+                    fetch(apiHost + id, {
                         method: "DELETE"
                     })
                         .then(function () {
