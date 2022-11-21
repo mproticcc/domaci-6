@@ -24,8 +24,6 @@ function renderCategory() {
         })
         .then(function (categories) {
             console.log(categories)
-
-            // reset if something was in table
             document.getElementById("tableBody").innerHTML = "";
 
             for (let category of categories) {
