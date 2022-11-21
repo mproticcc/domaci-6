@@ -1,8 +1,6 @@
 const apiHost = 'http://localhost:3000/categories';
 document.getElementById("addCategory").addEventListener("click", function () {
     const categoryName = document.getElementById("categoryName").value;
-
-
     fetch(apiHost, {
         method: "POST",
         headers: {
