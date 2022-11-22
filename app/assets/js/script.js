@@ -59,9 +59,12 @@ function createTable(categories) {
 
         document.getElementById("tableBody").appendChild(tableRow);
     }
+    deleteElement();
+
+}
+function deleteElement() {
     const deleteLinks = document.getElementsByClassName("delete");
     console.log(deleteLinks);
-
     for (let deleteLink of deleteLinks) {
         deleteLink.addEventListener("click", function (event) {
             event.preventDefault();
@@ -69,8 +72,7 @@ function createTable(categories) {
             console.log(event);
 
             const id = event.target.getAttribute("data-categoryid");
-
-            fetch(apiHost + id, {
+            fetch(apiHost + '/' + id, {
                 method: "DELETE"
             })
                 .then(function () {
